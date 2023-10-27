@@ -31,10 +31,10 @@ const Photo = ({ photo }: { photo: IPhotoFields }) => {
             alt={photo.title}
             width={width}
             height={height}
-            className="relative -z-10 object-contain max-h-[96vh] max-w-[90vw]"
+            className="relative -z-10 object-contain max-h-[96vh] max-w-98vw md:max-w-[90vw]"
           ></Image>
           <div className="translate-x-[-50%] absolute top-0 left-[50%] text-white p-3 pt-1 pb-2 font-mono mt-4 bg-black/40">
-            <div>{photo.location}</div>
+            <div className="text-xs">{photo.location}</div>
           </div>
         </DialogContent>
       </div>
