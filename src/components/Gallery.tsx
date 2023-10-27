@@ -26,14 +26,15 @@ const Photo = ({ photo }: { photo: IPhotoFields }) => {
           <div className="cursor-pointer bg-white/10 w-full h-full absolute top-0 left-0 p-4 opacity-0 hover:opacity-100 transition-all ease-linear"></div>
         </DialogTrigger>
         <DialogContent className="flex justify-center items-center max-w-none border-none rounded-none p-4">
-          <div className="">
-            <Image
-              src={src}
-              alt={photo.title}
-              width={width}
-              height={height}
-              className="-z-10 object-contain max-h-[97vh]"
-            />
+          <Image
+            src={src}
+            alt={photo.title}
+            width={width}
+            height={height}
+            className="relative -z-10 object-contain max-h-[96vh] max-w-[90vw]"
+          ></Image>
+          <div className="translate-x-[-50%] absolute top-0 left-[50%] text-white p-3 pt-1 pb-2 font-mono mt-4 bg-black/40">
+            <div>{photo.location}</div>
           </div>
         </DialogContent>
       </div>
