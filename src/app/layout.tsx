@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Crimson_Text } from "next/font/google";
 import "./globals.css";
 
-const crimsonFont = Crimson_Text({
+const serifFont = Crimson_Text({
   display: "swap",
   subsets: ["latin"],
   variable: "--font-serif",
@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${crimsonFont.variable}`}>
+      <body className={`${serifFont.variable}`}>
         {
           <ThemeProvider
             attribute="class"
