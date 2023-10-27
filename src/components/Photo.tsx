@@ -26,7 +26,9 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
           quality={40}
         />
         <DialogTrigger asChild>
-          <div className="cursor-pointer bg-white/10 w-full h-full absolute top-0 left-0 p-4 opacity-0 hover:opacity-100 transition-all ease-linear"></div>
+          <div className="cursor-pointer bg-stone-950/80 w-full flex h-full absolute top-0 left-0 p-4 opacity-0 hover:opacity-100 transition-all ease-linear justify-center items-center">
+            {photo.location}
+          </div>
         </DialogTrigger>
         <DialogContent
           onOpenAutoFocus={(e) => e.preventDefault()}
