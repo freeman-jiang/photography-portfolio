@@ -1,7 +1,10 @@
+import { Gallery } from "@/components/Gallery";
+
 export default function Home() {
   return (
-    <main className="py-5 px-10">
-      <div className="font-serif text-2xl">Freeman Jiang</div>
+    <main className="py-8 lg:px-10 sm:px-6">
+      <div className="font-serif text-3xl">Freeman Jiang</div>
+      <Gallery />
     </main>
   );
 }
