@@ -21,6 +21,7 @@ const Photo = ({ photo }: { photo: IPhotoFields }) => {
           width={width}
           height={height}
           className="-z-10 object-cover"
+          quality={40}
         />
         <DialogTrigger asChild>
           <div className="cursor-pointer bg-white/10 w-full h-full absolute top-0 left-0 p-4 opacity-0 hover:opacity-100 transition-all ease-linear"></div>
@@ -32,6 +33,7 @@ const Photo = ({ photo }: { photo: IPhotoFields }) => {
             width={width}
             height={height}
             className="relative -z-10 object-contain max-h-[96vh] max-w-98vw md:max-w-[90vw]"
+            quality={100}
           ></Image>
           <div className="translate-x-[-50%] absolute top-0 left-[50%] text-white p-3 pt-1 pb-2 font-mono mt-4 bg-black/40">
             <div className="text-xs">{photo.location}</div>
@@ -51,7 +53,7 @@ export const Gallery = async () => {
     <div className="mt-8">
       <div className="w-full">
         <div className="relative">
-          <div className="columns-md gap-8 space-y-8">
+          <div className="columns-lg gap-8 space-y-8">
             {(photos as IPhoto[])!.map((photo) => (
               <Photo key={photo.sys.id} photo={photo.fields as IPhotoFields} />
             ))}
