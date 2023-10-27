@@ -17,7 +17,3 @@ export const client = createClient({
   accessToken,
   space,
 });
-
-export const extractContentfulFileUrl = (url: string) => {
-  return `https:${url}`;
-};
