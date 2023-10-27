@@ -1,5 +1,7 @@
 import { Gallery } from "@/components/Gallery";
 
+export const revalidate = 10;
+
 export default function Home() {
   return (
     <main className="py-8">
