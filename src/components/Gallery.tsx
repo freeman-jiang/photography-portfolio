@@ -53,7 +53,7 @@ export const Gallery = async () => {
     <div className="mt-8">
       <div className="w-full">
         <div className="relative">
-          <div className="columns-lg gap-8 space-y-8">
+          <div className="xl:columns-sm columns-md gap-8 space-y-8">
             {(photos as IPhoto[])!.map((photo) => (
               <Photo key={photo.sys.id} photo={photo.fields as IPhotoFields} />
             ))}
