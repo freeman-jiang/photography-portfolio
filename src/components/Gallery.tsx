@@ -2,11 +2,10 @@ import { client, extractContentfulFileUrl } from "@/contentful";
 import { IPhoto, IPhotoFields } from "@/types/generated/contentful";
 import { AssetDetails } from "contentful";
 import Image from "next/image";
+import { Spinner } from "./Spinner";
 import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 
 const Photo = ({ photo }: { photo: IPhotoFields }) => {
-  console.log(photo.image.fields.file);
-
   const file = photo.image.fields.file!;
   const width = (file.details as AssetDetails).image!.width;
   const height = (file.details as AssetDetails).image!.height;
@@ -26,18 +25,27 @@ const Photo = ({ photo }: { photo: IPhotoFields }) => {
         <DialogTrigger asChild>
           <div className="cursor-pointer bg-white/10 w-full h-full absolute top-0 left-0 p-4 opacity-0 hover:opacity-100 transition-all ease-linear"></div>
         </DialogTrigger>
-        <DialogContent className="flex justify-center items-center max-w-none border-none rounded-none p-4">
-          <Image
-            src={src}
-            alt={photo.title}
-            width={width}
-            height={height}
-            className="relative -z-10 object-contain max-h-[96vh] max-w-98vw md:max-w-[90vw]"
-            quality={100}
-          ></Image>
-          <div className="translate-x-[-50%] absolute top-0 left-[50%] text-white p-3 pt-1 pb-2 font-mono mt-4 bg-black/40">
-            <div className="text-xs">{photo.location}</div>
+        <DialogContent className="border-none max-w-none p-0">
+          <div className="flex justify-center items-center h-[90vh] lg:mx-8 mx-2">
+            <div className="text-white absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+              <div className="flex justify-center items-center">
+                <Spinner className="mr-2" />
+                <div>Loading highest resolution image...</div>
+              </div>
+            </div>
+            <Image
+              src={src}
+              alt={photo.title}
+              width={width}
+              height={height}
+              className="relative object-contain h-full"
+              quality={100}
+            ></Image>
           </div>
+          {/* <div className="translate-x-[-50%] absolute top-0 left-[50%] text-white p-3 pt-1 pb-2 font-mono mt-4 bg-black/40">
+            <div className="text-xs">{photo.location}</div>
+          </div> */}
+          {/* <div className="bg-red-500 w-full h-4 absolute top-0 mt-4 "></div> */}
         </DialogContent>
       </div>
     </Dialog>
