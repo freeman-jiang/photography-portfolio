@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   description: "A photography portfolio",
 };
 
+import { ThemeProvider } from "@/components/theme-provider";
+
 export default function RootLayout({
   children,
 }: {
@@ -21,7 +23,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${crimsonFont.variable}`}>{children}</body>
+      <body className={`${crimsonFont.variable}`}>
+        {
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            // enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        }
+      </body>
     </html>
   );
 }
