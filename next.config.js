@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  transpilePackages: ["contentful-typescript-codegen"],
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
