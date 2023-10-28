@@ -43,7 +43,7 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
           onClick={() => setOpen(false)}
           className="border-none max-w-none p-0"
         >
-          <div className="flex justify-center items-center h-[95vh] lg:mx-8 mx-2">
+          <div className="flex justify-center items-center h-[95vh] lg:mx-8 md:mx-4">
             <div className="text-white absolute top-[50%] left-[50] translate-y-[-50%]">
               <div className="flex justify-center items-center">
                 <Spinner className="mr-2.5" />
