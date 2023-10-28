@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { extractContentfulFileUrl } from "@/lib/contentful";
 import { IPhotoFields } from "@/types/generated/contentful";
 import { AssetDetails } from "contentful";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import { Spinner } from "./Spinner";
@@ -16,7 +17,14 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <div className="w-full relative">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          duration: 0.6 + Math.random() * 2,
+        }}
+        className="w-full relative"
+      >
         <Image
           src={src}
           alt={photo.title}
@@ -56,7 +64,7 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
           </div> */}
           {/* <div className="bg-red-500 w-full h-4 absolute top-0 mt-4 "></div> */}
         </DialogContent>
-      </div>
+      </motion.div>
     </Dialog>
   );
 };
