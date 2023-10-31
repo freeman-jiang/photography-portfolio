@@ -34,7 +34,7 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
           quality={40}
         />
         <DialogTrigger asChild>
-          <div className="cursor-pointer bg-stone-950/80 w-full flex h-full absolute top-0 left-0 p-4 opacity-0 hover:opacity-100 transition-all ease-linear justify-center items-center font-serif text-lg">
+          <div className="cursor-pointer bg-stone-950/60 w-full flex h-full absolute top-0 left-0 p-4 opacity-0 hover:opacity-100 transition-all ease-linear justify-center items-center font-serif text-lg text-white dark:bg-stone-950/80">
             {photo.location}
           </div>
         </DialogTrigger>
