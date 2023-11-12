@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from "@/components/theme-provider";
+import { MixpanelProvider } from "@/mixpanel/MixpanelProvider";
 
 export default function RootLayout({
   children,
@@ -25,14 +26,16 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${serifFont.variable}`}>
         {
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
+          <MixpanelProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+            </ThemeProvider>
+          </MixpanelProvider>
         }
       </body>
     </html>

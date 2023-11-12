@@ -4,6 +4,7 @@ import { extractContentfulFileUrl } from "@/lib/contentful";
 import { IPhotoFields } from "@/types/generated/contentful";
 import { AssetDetails } from "contentful";
 import { motion } from "framer-motion";
+import mixpanel from "mixpanel-browser";
 import Image from "next/image";
 import { useState } from "react";
 import { Spinner } from "./Spinner";
@@ -34,7 +35,12 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
           quality={40}
         />
         <DialogTrigger asChild>
-          <div className="cursor-pointer bg-stone-950/60 w-full flex h-full absolute top-0 left-0 p-4 opacity-0 hover:opacity-100 transition-all ease-linear justify-center items-center font-serif text-lg text-white dark:bg-stone-950/60">
+          <div
+            className="cursor-pointer bg-stone-950/60 w-full flex h-full absolute top-0 left-0 p-4 opacity-0 hover:opacity-100 transition-all ease-linear justify-center items-center font-serif text-lg text-white dark:bg-stone-950/60"
+            onClick={() => {
+              mixpanel.track("Photo Click", { location: photo.location });
+            }}
+          >
             {photo.location}
           </div>
         </DialogTrigger>
