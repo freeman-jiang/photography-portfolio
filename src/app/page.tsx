@@ -7,7 +7,7 @@ export const revalidate = 10;
 export default function Home() {
   return (
     <main className="py-8">
-      <div className="font-thin tracking-wide text-3xl lg:px-10 sm:px-6 text-center sm:text-left flex justify-between">
+      <div className="px-4 font-thin tracking-wide text-3xl lg:px-10 sm:px-6 text-center sm:text-left flex justify-between">
         <div className="font-serif">Freeman Jiang</div>
         <Link
           href="https://uwaterloo.ca/co-operative-education/work-abroad/photo-contest/vote#Photo-05"
