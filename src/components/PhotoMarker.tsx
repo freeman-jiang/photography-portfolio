@@ -34,6 +34,7 @@ const CustomPopup = ({ photo, toggle }: CustomPopupProps) => {
           </Button>
         </div>
         <Image
+          className="mt-3 rounded-md"
           src={src}
           alt={fields.title}
           width={width}
