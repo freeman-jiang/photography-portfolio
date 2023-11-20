@@ -27,7 +27,7 @@ const CustomPopup = ({ photo, toggle }: CustomPopupProps) => {
       closeOnClick={false}
     >
       <div className="">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center text-slate-900">
           <div className="mr-3 font-sans text-sm">{fields.location}</div>
           <Button onClick={toggle} className="p-0 h-5 w-5">
             <X className="h-2.5 w-2.5" />
