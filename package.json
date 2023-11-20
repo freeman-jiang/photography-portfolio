@@ -12,6 +12,7 @@
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-slot": "^1.0.2",
+    "@types/mapbox-gl": "^2.7.18",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "contentful": "^10.6.5",
@@ -19,11 +20,13 @@
     "dotenv": "^16.3.1",
     "framer-motion": "^10.16.4",
     "lucide-react": "^0.289.0",
+    "mapbox-gl": "^2.15.0",
     "mixpanel-browser": "^2.47.0",
     "next": "14.0.0",
     "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-map-gl": "^7.1.6",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7"
   },
