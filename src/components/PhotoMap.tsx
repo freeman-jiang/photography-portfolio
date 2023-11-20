@@ -11,7 +11,7 @@ interface Props {
   photos: IPhoto[];
 }
 
-const minZoom = 7;
+const minZoom = 14;
 
 const buildingLayer: FillExtrusionLayer = {
   id: "add-3d-buildings",

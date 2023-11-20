@@ -3,7 +3,7 @@ import { IPhoto, IPhotoFields } from "@/types/generated/contentful";
 import { X } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
-import { Marker, Popup } from "react-map-gl";
+import { Marker, Popup, useMap } from "react-map-gl";
 import { Button } from "./ui/button";
 
 interface Props {
@@ -49,6 +49,7 @@ const CustomPopup = ({ photo, toggle }: CustomPopupProps) => {
 export const PhotoMarker = ({ photo }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const fields = photo.fields as IPhotoFields;
+  const { current: map } = useMap();
 
   const toggle = () => setIsOpen((prev) => !prev);
 
@@ -58,6 +59,14 @@ export const PhotoMarker = ({ photo }: Props) => {
       latitude={fields.coordinates.lat}
       onClick={() => {
         toggle();
+        map!.flyTo({
+          center: [fields.coordinates.lon, fields.coordinates.lat],
+          duration: 6000,
+          zoom: 16,
+          pitch: 25 * Math.random() + 25, // Between 25 and 50
+          bearing: 360 * Math.random(), // Number between
+          essential: true,
+        });
       }}
     >
       {isOpen && <CustomPopup photo={photo} toggle={toggle} />}
