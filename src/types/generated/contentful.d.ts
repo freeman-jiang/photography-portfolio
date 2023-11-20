@@ -14,6 +14,9 @@ export interface IPhotoFields {
 
   /** location */
   location: string;
+
+  /** coordinates */
+  coordinates: { lat: number; lon: number };
 }
 
 export interface IPhoto extends Entry<IPhotoFields> {

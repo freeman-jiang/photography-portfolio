@@ -1,3 +1,4 @@
+import { IPhoto } from "@/types/generated/contentful";
 import { createClient } from "contentful";
 
 const accessToken = process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN;
@@ -17,3 +18,10 @@ export const client = createClient({
   accessToken,
   space,
 });
+
+export const fetchAllPhotos = async () => {
+  const {
+    fields: { photos },
+  } = await client.getEntry("4okYBRVkNOHqOYg6e6vOOK");
+  return photos as IPhoto[];
+};

@@ -1,4 +1,5 @@
 "use client";
+import { IPhoto, IPhotoFields } from "@/types/generated/contentful";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useState } from "react";
 
@@ -6,15 +7,11 @@ import Map, { Marker } from "react-map-gl";
 
 interface Props {
   accessToken: string;
+  photos: IPhoto[];
 }
 
-// Generate 50 random lat longs
-const latlongs = [...Array(50)].map(() => {
-  return [Math.random() * 90, Math.random() * 180];
-});
-console.log(latlongs);
-
-export const PhotoMap = ({ accessToken }: Props) => {
+export const PhotoMap = ({ accessToken, photos }: Props) => {
+  console.log(photos);
   const [popupIndex, setPopupIndex] = useState<number | null>(null);
 
   const openPopup = (index: number) => {
@@ -25,13 +22,17 @@ export const PhotoMap = ({ accessToken }: Props) => {
     setPopupIndex(null);
   };
 
-  const CustomMarker = ({ index, item }) => {
-    console.log(index, item);
+  const CustomMarker = ({ index, item }: { index: number; item: IPhoto }) => {
+    const fields = item.fields as IPhotoFields;
+
     return (
-      <Marker longitude={item.longitude} latitude={item.latitude}>
-        <div className="marker" onClick={() => openPopup(index)}>
+      <Marker
+        longitude={fields.coordinates.lon}
+        latitude={fields.coordinates.lat}
+      >
+        {/* <div className="marker" onClick={() => openPopup(index)}>
           <div className="text-xl font-bold text-emerald-500">HELLO WORLD</div>
-        </div>
+        </div> */}
       </Marker>
     );
   };
@@ -51,15 +52,8 @@ export const PhotoMap = ({ accessToken }: Props) => {
           name: "globe",
         }}
       >
-        {/* {latlongs.map((latlong, index) => (
-          <Marker key={index} longitude={latlong[1]} latitude={latlong[0]} />
-        ))} */}
-        {latlongs.map((latlong, index) => (
-          <CustomMarker
-            key={index}
-            index={index}
-            item={{ latitude: latlong[0], longitude: latlong[1] }}
-          />
+        {photos.map((item, index) => (
+          <CustomMarker key={index} index={index} item={item} />
         ))}
       </Map>
     </div>
