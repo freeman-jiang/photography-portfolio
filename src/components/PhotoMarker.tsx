@@ -1,5 +1,7 @@
+import { extractPhotoDetails } from "@/lib/contentful";
 import { IPhoto, IPhotoFields } from "@/types/generated/contentful";
 import { X } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 import { Marker, Popup } from "react-map-gl";
 import { Button } from "./ui/button";
@@ -15,6 +17,7 @@ interface CustomPopupProps {
 
 const CustomPopup = ({ photo, toggle }: CustomPopupProps) => {
   const fields = photo.fields as IPhotoFields;
+  const { height, src, width } = extractPhotoDetails(fields);
 
   return (
     <Popup
@@ -30,6 +33,13 @@ const CustomPopup = ({ photo, toggle }: CustomPopupProps) => {
             <X className="h-2.5 w-2.5" />
           </Button>
         </div>
+        <Image
+          src={src}
+          alt={fields.title}
+          width={width}
+          height={height}
+          quality={30}
+        />
       </div>
     </Popup>
   );

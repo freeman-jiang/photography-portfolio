@@ -20,7 +20,7 @@ export const PhotoMap = ({ accessToken, photos }: Props) => {
           longitude: -90.214155,
           zoom: 3,
         }}
-        style={{ width: "80vw", height: "80vh" }}
+        style={{ width: "100vw", height: "100vh" }}
         mapStyle="mapbox://styles/mapbox/streets-v12"
         projection={{
           name: "globe",

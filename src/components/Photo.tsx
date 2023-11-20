@@ -1,8 +1,7 @@
 "use client";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { extractContentfulFileUrl } from "@/lib/contentful";
+import { extractPhotoDetails } from "@/lib/contentful";
 import { IPhotoFields } from "@/types/generated/contentful";
-import { AssetDetails } from "contentful";
 import { motion } from "framer-motion";
 import mixpanel from "mixpanel-browser";
 import Image from "next/image";
@@ -11,10 +10,7 @@ import { Spinner } from "./Spinner";
 
 export const Photo = ({ photo }: { photo: IPhotoFields }) => {
   const [open, setOpen] = useState(false);
-  const file = photo.image.fields.file!;
-  const width = (file.details as AssetDetails).image!.width;
-  const height = (file.details as AssetDetails).image!.height;
-  const src = extractContentfulFileUrl(file.url as string);
+  const { height, src, width } = extractPhotoDetails(photo);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
