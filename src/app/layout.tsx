@@ -29,8 +29,7 @@ export default function RootLayout({
           <MixpanelProvider>
             <ThemeProvider
               attribute="class"
-              defaultTheme="system"
-              enableSystem
+              defaultTheme="light"
               disableTransitionOnChange
             >
               {children}

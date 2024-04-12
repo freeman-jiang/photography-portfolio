@@ -1,22 +1,18 @@
-import { Gallery } from "@/components/Gallery";
-import { Button } from "@/components/ui/button";
-import { Navigation } from "lucide-react";
-import Link from "next/link";
+import { LargeGallery } from "@/components/Gallery";
 
 export const revalidate = 10;
 
 export default function Home() {
   return (
-    <main className="py-8">
-      <div className="px-4 font-thin tracking-wide text-3xl lg:px-10 sm:px-6 text-center sm:text-left flex justify-between">
-        <div className="font-serif">Freeman Jiang</div>
-        <Link href="/map">
-          <Button>
-            <Navigation className="w-4 h-4 mr-2" /> Map
-          </Button>
-        </Link>
+    <main className="py-14 lg:px-16 sm:px-6 px-4">
+      <div className="text-4xl font-semibold font-switzer">Freeman Jiang</div>
+
+      <div className="mt-2 text-stone-600 text-lg font-inter">
+        Currently based in{" "}
+        <span className="font-semibold text-stone-950">Waterloo, Ontario</span>.
       </div>
-      <Gallery />
+
+      <LargeGallery />
     </main>
   );
 }

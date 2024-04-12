@@ -2,6 +2,106 @@
 
 import { Asset, Entry } from "contentful";
 
+export interface IContactFields {
+  /** text */
+  text: string;
+
+  /** link */
+  link: string;
+}
+
+export interface IContact extends Entry<IContactFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "contact";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IContactListFields {
+  /** items */
+  items: IContact[];
+
+  /** name */
+  name?: string | undefined;
+}
+
+export interface IContactList extends Entry<IContactListFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "contactList";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IInterestFields {
+  /** name */
+  name: string;
+
+  /** link */
+  link?: string | undefined;
+}
+
+export interface IInterest extends Entry<IInterestFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "interest";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IInterestListFields {
+  /** items */
+  items: IInterest[];
+
+  /** name */
+  name: string;
+}
+
+export interface IInterestList extends Entry<IInterestListFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "interestList";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IPhotoFields {
   /** image */
   image: Asset;
@@ -195,6 +295,10 @@ export interface IProjectList extends Entry<IProjectListFields> {
 }
 
 export type CONTENT_TYPE =
+  | "contact"
+  | "contactList"
+  | "interest"
+  | "interestList"
   | "photo"
   | "photoList"
   | "position"
@@ -203,6 +307,10 @@ export type CONTENT_TYPE =
   | "projectList";
 
 export type IEntry =
+  | IContact
+  | IContactList
+  | IInterest
+  | IInterestList
   | IPhoto
   | IPhotoList
   | IPosition

@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@base {
+  @import url("/fonts/switzer/css/switzer.css");
+}

@@ -17,6 +17,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
+        sans: ["Switzer Variable", "Inter", "sans-serif"],
+        switzer: ["Inter", "sans-serif"],
         serif: ["var(--font-serif)", "serif"],
       },
       keyframes: {

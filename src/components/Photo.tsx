@@ -20,7 +20,7 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
         transition={{
           duration: 0.6 + Math.random() * 2,
         }}
-        className="w-full relative"
+        className="w-full relative font-switzer"
       >
         <Image
           src={src}
@@ -32,13 +32,11 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
         />
         <DialogTrigger asChild>
           <div
-            className="cursor-pointer bg-stone-950/60 w-full flex h-full absolute top-0 left-0 p-4 opacity-0 hover:opacity-100 transition-all ease-linear justify-center items-center font-serif text-lg text-white dark:bg-stone-950/60"
+            className="cursor-pointer bg-stone-950/0 w-full flex h-full absolute top-0 left-0 p-4 opacity-0 hover:opacity-100 transition-all ease-linear text-lg text-white"
             onClick={() => {
               mixpanel.track("Photo Click", { location: photo.location });
             }}
-          >
-            {photo.location}
-          </div>
+          ></div>
         </DialogTrigger>
         <DialogContent
           onOpenAutoFocus={(e) => e.preventDefault()}
@@ -48,7 +46,7 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
           <div className="flex justify-center items-center h-[95vh] lg:mx-8 md:mx-4">
             <div className="text-white absolute top-[50%] left-[50] translate-y-[-50%]">
               <div className="flex justify-center items-center">
-                <Spinner className="mr-2.5" />
+                <Spinner className="mr-2.5 font-switzer" />
                 <div>Loading highest resolution...</div>
               </div>
             </div>
