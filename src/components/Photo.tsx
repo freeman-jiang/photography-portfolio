@@ -18,7 +18,7 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{
-          duration: 0.6 + Math.random() * 2,
+          duration: Math.random() * 1.5,
         }}
         className="w-full relative font-switzer"
       >

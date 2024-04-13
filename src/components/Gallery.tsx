@@ -7,7 +7,7 @@ export const LargeGallery = async () => {
   const photos = await fetchAllPhotos();
 
   return (
-    <div className="mt-24 space-y-3">
+    <div className="mt-12 space-y-3">
       <ToggleGroup
         type="single"
         size={"lg"}
