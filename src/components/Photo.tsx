@@ -38,31 +38,35 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
             }}
           ></div>
         </DialogTrigger>
+
         <DialogContent
           onOpenAutoFocus={(e) => e.preventDefault()}
           onClick={() => setOpen(false)}
           className="border-none max-w-none p-0"
         >
-          <div className="flex justify-center items-center h-[95vh] lg:mx-8 md:mx-4">
-            <div className="text-white absolute top-[50%] left-[50] translate-y-[-50%]">
-              <div className="flex justify-center items-center">
-                <Spinner className="mr-2.5 font-switzer" />
-                <div>Loading highest resolution...</div>
-              </div>
+          <div className="h-screen flex flex-col justify-end pt-12 pb-4 text-stone-50 items-center space-y-2">
+            <div className="font-switzer">
+              <span className="font-medium">{photo.location}</span>
+              {photo.date && ` | ${photo.date}`}
             </div>
-            <Image
-              src={src}
-              alt={photo.title}
-              width={width}
-              height={height}
-              className="relative object-contain h-full"
-              quality={100}
-            ></Image>
+            <div className="flex justify-center items-center h-full lg:mx-8 md:mx-4">
+              <div className="absolute top-[50%] left-[50] translate-y-[-50%]">
+                <div className="flex justify-center items-center">
+                  <Spinner className="mr-2.5 font-switzer" />
+                  <div>Loading highest resolution...</div>
+                </div>
+              </div>
+
+              <Image
+                src={src}
+                alt={photo.title}
+                width={width}
+                height={height}
+                className="relative object-contain h-full"
+                quality={100}
+              ></Image>
+            </div>
           </div>
-          {/* <div className="translate-x-[-50%] absolute top-0 left-[50%] text-white p-3 pt-1 pb-2 font-mono mt-4 bg-black/40">
-            <div className="text-xs">{photo.location}</div>
-          </div> */}
-          {/* <div className="bg-red-500 w-full h-4 absolute top-0 mt-4 "></div> */}
         </DialogContent>
       </motion.div>
     </Dialog>

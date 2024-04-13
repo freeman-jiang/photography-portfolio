@@ -117,6 +117,12 @@ export interface IPhotoFields {
 
   /** coordinates */
   coordinates: { lat: number; lon: number };
+
+  /** date */
+  date?: string | undefined;
+
+  /** tags */
+  tags?: ("people" | "places" | "things")[] | undefined;
 }
 
 export interface IPhoto extends Entry<IPhotoFields> {
