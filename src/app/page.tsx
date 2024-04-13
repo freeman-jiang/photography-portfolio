@@ -1,8 +1,11 @@
 import { LargeGallery } from "@/components/Gallery";
+import { fetchAllPhotos } from "@/contentful";
 
 export const revalidate = 10;
 
-export default function Home() {
+export default async function Home() {
+  const photos = await fetchAllPhotos();
+
   return (
     <main className="py-14 lg:px-16 sm:px-6 px-4">
       <div className="text-4xl font-semibold font-switzer">Freeman Jiang</div>
@@ -12,7 +15,7 @@ export default function Home() {
         <span className="font-semibold text-stone-950">Waterloo, Ontario</span>.
       </div>
 
-      <LargeGallery />
+      <LargeGallery photos={photos} />
     </main>
   );
 }
