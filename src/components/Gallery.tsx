@@ -1,6 +1,6 @@
 "use client";
 import { IPhoto, IPhotoFields } from "@/types/generated/contentful";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Photo } from "./Photo";
 import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group";
 
@@ -25,6 +25,22 @@ export const LargeGallery = ({ photos }: Props) => {
     return false;
   });
 
+  const lightPhotos = useMemo(() => {
+    return filteredPhotos.filter((photo) => {
+      const fields: IPhotoFields = photo.fields as IPhotoFields;
+
+      return fields.theme?.includes("light");
+    });
+  }, [filteredPhotos]);
+
+  const darkPhotos = useMemo(() => {
+    return filteredPhotos.filter((photo) => {
+      const fields: IPhotoFields = photo.fields as IPhotoFields;
+
+      return fields.theme?.includes("dark");
+    });
+  }, [filteredPhotos]);
+
   const Photos = () => {
     if (filteredPhotos.length === 0) {
       return (
@@ -37,8 +53,13 @@ export const LargeGallery = ({ photos }: Props) => {
     return (
       <div className="w-full">
         <div className="relative">
-          <div className="gap-2.5 space-y-2.5 columns-md">
-            {(filteredPhotos as IPhoto[])!.map((photo) => (
+          <div className="gap-2.5 space-y-2.5 columns-md dark:hidden">
+            {(lightPhotos as IPhoto[])!.map((photo) => (
+              <Photo key={photo.sys.id} photo={photo.fields as IPhotoFields} />
+            ))}
+          </div>
+          <div className="gap-2.5 space-y-2.5 columns-md hidden dark:block">
+            {(darkPhotos as IPhoto[])!.map((photo) => (
               <Photo key={photo.sys.id} photo={photo.fields as IPhotoFields} />
             ))}
           </div>
