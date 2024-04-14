@@ -58,7 +58,9 @@ export const LargeGallery = ({ photos }: Props) => {
           if (value) setFilter(value);
         }}
       >
-        <ToggleGroupItem value="all">All</ToggleGroupItem>
+        <ToggleGroupItem value="all" className="">
+          All
+        </ToggleGroupItem>
         <ToggleGroupItem value="people">People</ToggleGroupItem>
         <ToggleGroupItem value="places">Places</ToggleGroupItem>
         <ToggleGroupItem value="things">Things</ToggleGroupItem>

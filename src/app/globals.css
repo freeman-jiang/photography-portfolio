@@ -5,3 +5,7 @@
 @base {
   @import url("/fonts/switzer/css/switzer.css");
 }
+
+body * {
+  /* @apply transition-all duration-300; */
+}

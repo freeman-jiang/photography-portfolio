@@ -123,6 +123,9 @@ export interface IPhotoFields {
 
   /** tags */
   tags?: ("people" | "places" | "things")[] | undefined;
+
+  /** theme */
+  theme?: ("dark" | "light")[] | undefined;
 }
 
 export interface IPhoto extends Entry<IPhotoFields> {

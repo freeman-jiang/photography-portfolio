@@ -24,14 +24,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${serifFont.variable}`}>
+      <body
+        className={`${serifFont.variable} bg-white dark:bg-stone-950 transition-colors duration-300`}
+      >
         {
           <MixpanelProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="light"
-              disableTransitionOnChange
-            >
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               {children}
             </ThemeProvider>
           </MixpanelProvider>
