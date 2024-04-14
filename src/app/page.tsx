@@ -1,5 +1,6 @@
 import { LargeGallery } from "@/components/Gallery";
 import { fetchAllPhotos } from "@/contentful";
+import { shuffleArray } from "@/lib/utils";
 
 export const revalidate = 10;
 
@@ -15,7 +16,7 @@ export default async function Home() {
         <span className="font-semibold text-stone-950">Waterloo, Ontario</span>.
       </div>
 
-      <LargeGallery photos={photos} />
+      <LargeGallery photos={shuffleArray(photos)} />
     </main>
   );
 }
