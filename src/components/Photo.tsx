@@ -28,7 +28,7 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
           width={width}
           height={height}
           className="-z-10 object-cover"
-          quality={40}
+          quality={30}
         />
         <DialogTrigger asChild>
           <div
@@ -45,8 +45,8 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
           className="border-none max-w-none p-0"
         >
           <div className="h-screen flex flex-col justify-end pt-12 pb-4 text-stone-50 items-center space-y-2">
-            <div className="font-switzer">
-              <span className="font-medium">{photo.location}</span>
+            <div className="font-sans">
+              <span className="font-semibold">{photo.location}</span>
               {photo.date && ` | ${photo.date}`}
             </div>
             <div className="flex justify-center items-center h-full lg:mx-8 md:mx-4">
@@ -63,7 +63,7 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
                 width={width}
                 height={height}
                 className="relative object-contain h-full"
-                quality={100}
+                unoptimized
               ></Image>
             </div>
           </div>

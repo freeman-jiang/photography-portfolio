@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { Crimson_Text } from "next/font/google";
+import { Crimson_Text, Inter } from "next/font/google";
 import "./globals.css";
+
+// If loading a variable font, you don't need to specify the font weight
+const inter = Inter({ subsets: ["latin"] });
 
 const serifFont = Crimson_Text({
   display: "swap",
@@ -15,6 +18,7 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from "@/components/theme-provider";
+import { cn } from "@/lib/utils";
 import { MixpanelProvider } from "@/mixpanel/MixpanelProvider";
 
 export default function RootLayout({
@@ -25,7 +29,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${serifFont.variable} bg-white dark:bg-stone-950 transition-colors duration-300`}
+        className={cn(
+          `bg-white dark:bg-stone-950 transition-colors duration-300`,
+          inter.className,
+          serifFont.className
+        )}
       >
         {
           <MixpanelProvider>

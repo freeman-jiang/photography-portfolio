@@ -13,7 +13,7 @@ export default async function Home() {
       <div className="text-4xl font-semibold font-switzer">Freeman Jiang</div>
 
       <div className="mt-2 flex flex-col lg:flex-row justify-between gap-4">
-        <div className="text-stone-600 dark:text-stone-400 text-lg font-inter">
+        <div className="text-stone-600 dark:text-stone-400 text-lg font-switzer">
           Currently based in{" "}
           <span className="font-semibold text-stone-950 dark:text-stone-100">
             Waterloo, Ontario
