@@ -14,9 +14,9 @@ export const LargeGallery = ({ photos }: Props) => {
   const [filter, setFilter] = useState<Filter>("all");
 
   const filteredPhotos = photos.filter((photo) => {
-    if (filter === "all") return true;
-
     const fields: IPhotoFields = photo.fields as IPhotoFields;
+
+    if (filter === "all") return !fields.tags?.includes("things");
 
     if (filter === "people") return fields.tags?.includes("people");
     if (filter === "places") return fields.tags?.includes("places");
