@@ -52,8 +52,10 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
             <div className="flex justify-center items-center h-full lg:mx-8 md:mx-4">
               <div className="absolute top-[50%] left-[50] translate-y-[-50%]">
                 <div className="flex justify-center items-center">
-                  <Spinner className="mr-2.5 font-switzer" />
-                  <div>Loading highest resolution...</div>
+                  <Spinner className="mr-2.5" />
+                  <div className="font-switzer">
+                    Loading highest resolution...
+                  </div>
                 </div>
               </div>
 
