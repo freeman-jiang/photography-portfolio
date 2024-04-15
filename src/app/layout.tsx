@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          `bg-white dark:bg-stone-950 transition-colors duration-300`,
+          `bg-stone-50 dark:bg-stone-950 dark:text-stone-50 text-stone-950 transition-colors duration-300`,
           inter.className
         )}
       >
