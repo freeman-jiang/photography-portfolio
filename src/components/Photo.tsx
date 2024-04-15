@@ -49,7 +49,7 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
               <span className="font-semibold">{photo.location}</span>
               {photo.date && ` | ${photo.date}`}
             </div>
-            <div className="flex justify-center items-center h-full lg:mx-8 md:mx-4">
+            <div className="flex justify-center items-center h-full lg:mx-8 md:mx-4 mx-2">
               <div className="absolute top-[50%] left-[50] translate-y-[-50%]">
                 <div className="flex justify-center items-center">
                   <Spinner className="mr-2.5" />
@@ -58,7 +58,6 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
                   </div>
                 </div>
               </div>
-
               <Image
                 src={src}
                 alt={photo.title}
@@ -66,7 +65,7 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
                 height={height}
                 className="relative object-contain h-full"
                 unoptimized
-              ></Image>
+              />
             </div>
           </div>
         </DialogContent>
