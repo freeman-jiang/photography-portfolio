@@ -64,7 +64,11 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
               />
               <div className="font-sans text-center pt-3">
                 <span className="font-semibold">{photo.location}</span>
-                {photo.date && ` | ${photo.date}`}
+                <div className="lg:hidden">{photo.date}</div>
+
+                <span className="hidden lg:inline">
+                  {photo.date && ` | ${photo.date}`}
+                </span>
               </div>
             </div>
           </div>
