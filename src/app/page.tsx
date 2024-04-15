@@ -23,12 +23,7 @@ export default async function Home() {
             .
           </div>
         </div>
-        <div className="flex lg:justify-center items-center gap-3">
-          <ThemeButton />
-          <div className="text-secondary-light dark:text-secondary-dark lg:hidden">
-            Click to see night photos
-          </div>
-        </div>
+        <ThemeButton />
       </div>
 
       <LargeGallery photos={shuffleArray(photos)} />
