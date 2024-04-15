@@ -12,7 +12,7 @@ export default async function Home() {
     <main className="py-14 lg:px-16 sm:px-6 px-4">
       <div className="flex flex-col lg:flex-row justify-between gap-4">
         <div>
-          <div className="text-4xl font-semibold font-switzer">
+          <div className="text-3xl font-semibold font-switzer">
             Freeman Jiang
           </div>
           <div className="mt-2 text-secondary-light dark:text-secondary-dark text-lg font-switzer">
