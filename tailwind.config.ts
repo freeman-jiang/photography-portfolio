@@ -18,7 +18,6 @@ module.exports = {
     extend: {
       fontFamily: {
         switzer: ["Switzer Variable", "Inter", "sans-serif"],
-        serif: ["var(--font-serif)", "serif"],
       },
       keyframes: {
         "accordion-down": {
