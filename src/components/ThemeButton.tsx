@@ -29,7 +29,7 @@ export const ThemeButton = () => {
         <span className="sr-only">Toggle theme</span>
       </Button>
       <motion.div
-        className="text-secondary-light dark:text-secondary-dark font-switzer"
+        className="text-secondary-light dark:text-secondary-dark font-switzer transition-all duration-300"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{
