@@ -1,13 +1,21 @@
 "use client";
+import { motion } from "framer-motion";
 import { MoonStar, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 
 export const ThemeButton = () => {
   const { theme, setTheme } = useTheme();
 
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <div className="flex lg:justify-center items-center gap-3 lg:flex-row-reverse">
+    <div className="flex lg:justify-center items-center gap-4 lg:flex-row-reverse">
       <Button
         variant="outline"
         size="icon"
@@ -20,9 +28,16 @@ export const ThemeButton = () => {
         <MoonStar className="absolute rotate-90 scale-0 dark:rotate-0 dark:scale-100 transition-transform duration-700" />
         <span className="sr-only">Toggle theme</span>
       </Button>
-      <div className="text-secondary-light dark:text-secondary-dark font-switzer">
-        {`${theme === "dark" ? "Night" : "Day"} Photography`}
-      </div>
+      <motion.div
+        className="text-secondary-light dark:text-secondary-dark font-switzer"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          duration: 1.5,
+        }}
+      >
+        {!mounted ? null : `${theme === "dark" ? "Night" : "Day"} Photography`}
+      </motion.div>
     </div>
   );
 };
