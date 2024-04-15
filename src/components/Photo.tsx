@@ -44,12 +44,8 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
           onClick={() => setOpen(false)}
           className="border-none max-w-none p-0"
         >
-          <div className="h-screen flex flex-col justify-end pt-12 pb-4 text-stone-50 items-center space-y-2">
-            <div className="font-sans">
-              <span className="font-semibold">{photo.location}</span>
-              {photo.date && ` | ${photo.date}`}
-            </div>
-            <div className="flex justify-center items-center h-full lg:mx-8 md:mx-4 mx-2">
+          <div className="text-stone-50">
+            <div className="h-screen flex flex-col items-center justify-center px-2">
               <div className="absolute top-[50%] left-[50] translate-y-[-50%]">
                 <div className="flex justify-center items-center">
                   <Spinner className="mr-2.5" />
@@ -63,9 +59,13 @@ export const Photo = ({ photo }: { photo: IPhotoFields }) => {
                 alt={photo.title}
                 width={width}
                 height={height}
-                className="relative object-contain h-full"
+                className="object-scale-down max-h-[92%] relative"
                 unoptimized
               />
+              <div className="font-sans text-center pt-3">
+                <span className="font-semibold">{photo.location}</span>
+                {photo.date && ` | ${photo.date}`}
+              </div>
             </div>
           </div>
         </DialogContent>
