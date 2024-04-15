@@ -37,9 +37,7 @@ export default function RootLayout({
       >
         {
           <MixpanelProvider>
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-              {children}
-            </ThemeProvider>
+            <ThemeProvider>{children}</ThemeProvider>
           </MixpanelProvider>
         }
       </body>

@@ -11,7 +11,7 @@ interface Props {
 type Filter = "all" | "people" | "places" | "things";
 
 export const LargeGallery = ({ photos }: Props) => {
-  const [filter, setFilter] = useState<Filter>("all");
+  const [filter, setFilter] = useState<Filter>("places");
 
   const filteredPhotos = photos.filter((photo) => {
     const fields: IPhotoFields = photo.fields as IPhotoFields;
@@ -74,16 +74,16 @@ export const LargeGallery = ({ photos }: Props) => {
         type="single"
         size={"lg"}
         className="font-switzer justify-start"
-        defaultValue="all"
+        defaultValue="places"
         onValueChange={(value: Filter) => {
           if (value) setFilter(value);
         }}
       >
-        <ToggleGroupItem value="all" className="">
+        {/* <ToggleGroupItem value="all" className="">
           All
-        </ToggleGroupItem>
-        <ToggleGroupItem value="people">People</ToggleGroupItem>
+        </ToggleGroupItem> */}
         <ToggleGroupItem value="places">Places</ToggleGroupItem>
+        <ToggleGroupItem value="people">People</ToggleGroupItem>
         <ToggleGroupItem value="things">Things</ToggleGroupItem>
       </ToggleGroup>
       <Photos />
