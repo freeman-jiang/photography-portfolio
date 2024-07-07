@@ -18,7 +18,7 @@ export default async function Home() {
           <div className="mt-2 text-secondary-light dark:text-secondary-dark text-lg font-switzer">
             Currently based in{" "}
             <span className="font-semibold text-stone-950 dark:text-stone-100">
-              Waterloo, Ontario
+              San Francisco, CA
             </span>
             .
           </div>
